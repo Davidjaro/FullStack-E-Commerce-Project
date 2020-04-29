@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 28. Apr 2020 um 15:57
+-- Erstellungszeit: 29. Apr 2020 um 13:37
 -- Server-Version: 10.4.11-MariaDB
 -- PHP-Version: 7.4.3
 
@@ -49,9 +49,7 @@ INSERT INTO `address` (`address_id`, `street`, `zip`, `city`, `country`, `coordx
 (1, 'Blue Str. 123', '1110', 'Vienna', 'Austria', '48.208176', '16.373819', 1),
 (2, 'Red Str. 94', '75000', 'Paris', 'France', '48.856613', '2.352222', 2),
 (3, 'Water Str. 123', '104 13', 'Athens', 'Greece', '37.983810', '23.727539', 3),
-(4, 'Jenullgasse', '1140', 'Wien', 'Austria', '', '', 3),
-(5, 'Jenullgasse 18-26/8/11', '1140', 'Wien', 'Österreich', '', '', 4),
-(6, 'Jenullgasse 18-26/8/11', '1140', 'Vienna', 'Austria', '', '', 5);
+(4, 'Jenullgasse', '1140', 'Wien', 'Austria', '', '', 3);
 
 -- --------------------------------------------------------
 
@@ -122,15 +120,6 @@ CREATE TABLE `order` (
   `orderedpdt_name` varchar(255) NOT NULL,
   `fk_discount_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `order`
---
-
-INSERT INTO `order` (`order_id`, `fk_product_id`, `fk_user_id`, `order_qty`, `order_price`, `orderedpdt_name`, `fk_discount_id`) VALUES
-(57, 2, 5, 1, 35, '', 5),
-(58, 1, 4, 1, 2500, '', 5),
-(59, 1, 5, 1, 2500, '', 5);
 
 -- --------------------------------------------------------
 
@@ -250,9 +239,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`user_id`, `role`, `active`, `email`, `password`, `first_name`, `last_name`, `user_img`, `phone_number`, `token`) VALUES
 (1, 'superAdmin', 'yes', 'super@email.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'Super', 'Admin', NULL, 1234567890, ''),
 (2, 'admin', 'yes', 'admin@email.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'Admin', 'Admin', NULL, 1234567890, ''),
-(3, 'user', 'yes', 'user@email.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'User', 'User', NULL, 1234567890, ''),
-(4, 'user', 'banned', 'david.jaroska@gmail.com', '5527f53d44f8a3e00c96467cd36402f3706b22ba7279cc13920cbf4d6c9f9d9c', 'David', 'Jaroska', '../img/dog-2785074_1920.jpg', 2147483647, ''),
-(5, 'user', 'no', 'marianna.jaroskova@gmail.com', 'df3344c1c41b46a0a25ea2c6f38dd5e50b14dd935f3ba02146cb8bb2cba59b6a', 'Marianna', 'Jaroskova', '../img/giraffe-4312090_1920.jpg', 2147483647, '');
+(3, 'user', 'yes', 'user@email.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'User', 'User', NULL, 1234567890, '');
 
 -- --------------------------------------------------------
 
@@ -265,13 +252,6 @@ CREATE TABLE `wishlist` (
   `fk_product_id` int(11) NOT NULL,
   `fk_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Daten für Tabelle `wishlist`
---
-
-INSERT INTO `wishlist` (`wishlist_id`, `fk_product_id`, `fk_user_id`) VALUES
-(25, 1, 5);
 
 --
 -- Indizes der exportierten Tabellen
